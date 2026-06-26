@@ -1,0 +1,733 @@
+我看了我们前面的所有讨论，我发现你的目标其实已经不是：
+
+> **"做一个 CTF 平台。"**
+
+而是：
+
+> **"用一个真实的 CTF 平台项目，把计算机基础 → Java → 软件架构 → Linux → Docker → 分布式全部串起来。"**
+
+这种学习方式，我非常赞同。
+
+所以我不会给你一个"Spring Boot 教程"，而是给你一份**软件工程路线图（RoadMap）**。
+
+---
+
+# 我给整个项目起一个名字
+
+> **Project Aegis（暂定）**
+>
+> **副标题：从零构建一个现代化 CTF Platform（Java Edition）**
+
+它不是一个 Demo，而是一个至少可以维护 **2~3 年** 的长期项目。
+
+---
+
+# 整体规划（Tree）
+
+整个项目分为 **7 棵树**。
+
+```text
+Project Aegis
+│
+├── Tree 0 计算机基础
+├── Tree 1 Java体系
+├── Tree 2 软件工程
+├── Tree 3 CTF业务
+├── Tree 4 平台开发
+├── Tree 5 系统架构
+└── Tree 6 运维部署
+```
+
+---
+
+# Phase 0：思想建立（Architecture First）
+
+时间：
+
+**不要急着写代码。**
+
+目标：
+
+建立整个项目的世界观。
+
+完成：
+
+```
+docs/
+
+00-Architecture/
+
+01-KnowledgeTree/
+
+02-Domain/
+
+03-ER/
+
+04-API/
+
+05-Deployment/
+```
+
+这里以后会越来越厚。
+
+代码永远不是第一位。
+
+---
+
+# Tree0：Computer Science
+
+这是你的根。
+
+```
+Computer Science
+
+├── Data Structure      √ 已学
+├── Algorithm
+├── Computer Network    √ 已学
+├── Operating System    √ 已学
+├── Computer Organization √ 已学
+├── Database
+├── Compiler
+├── Distributed System
+└── Software Engineering
+```
+
+以后：
+
+Java 的每一个知识点，
+
+都要能追溯到这里。
+
+例如：
+
+```
+ConcurrentHashMap
+
+↓
+
+CAS
+
+↓
+
+CPU缓存一致性
+
+↓
+
+MESI协议
+
+↓
+
+计算机组成原理
+```
+
+---
+
+# Tree1：Java Tree
+
+这是整个项目最重要的一棵。
+
+我建议以后把它画成真正的大树。
+
+```
+Java
+
+├── Language
+│
+├── OOP
+│
+├── Collection
+│
+├── Generic
+│
+├── Exception
+│
+├── IO
+│
+├── NIO
+│
+├── Concurrent
+│
+├── Reflection
+│
+├── Annotation
+│
+├── SPI
+│
+├── ClassLoader
+│
+├── JVM
+│
+├── Security
+│
+├── Performance
+│
+└── Design Pattern
+```
+
+然后：
+
+例如：
+
+Concurrent：
+
+```
+Concurrent
+
+├── Thread
+├── ThreadPool
+├── CompletableFuture
+├── Lock
+├── CAS
+├── AQS
+├── ForkJoin
+├── VirtualThread
+└── MemoryModel
+```
+
+以后：
+
+每开发一个模块。
+
+就在树上打一个勾。
+
+---
+
+# Tree2：Framework Tree
+
+```
+Spring
+
+├── IOC
+├── DI
+├── Bean
+├── MVC
+├── Security
+├── Validation
+├── AOP
+├── Transaction
+├── Cache
+├── Event
+├── Async
+└── Scheduler
+```
+
+MyBatis：
+
+```
+Mapper
+
+↓
+
+Executor
+
+↓
+
+SQL
+
+↓
+
+ConnectionPool
+```
+
+以后：
+
+我们还会读源码。
+
+---
+
+# Tree3：CTF Domain
+
+这个参考：
+
+CTF Wiki。
+
+但是：
+
+重新设计。
+
+```
+CTF
+
+├── Competition
+│
+├── Team
+│
+├── User
+│
+├── Challenge
+│
+├── Category
+│
+├── Hint
+│
+├── Flag
+│
+├── Attachment
+│
+├── Judge
+│
+├── Score
+│
+├── Notice
+│
+├── Container
+│
+└── Statistics
+```
+
+这里就是：
+
+DDD（领域驱动设计）。
+
+---
+
+# Tree4：Platform
+
+真正开始开发。
+
+模块：
+
+```
+Platform
+
+├── Auth
+│
+├── User
+│
+├── Competition
+│
+├── Challenge
+│
+├── Docker
+│
+├── Judge
+│
+├── File
+│
+├── Notification
+│
+├── Ranking
+│
+└── Admin
+```
+
+这一层：
+
+全部：
+
+Spring Boot。
+
+---
+
+# Tree5：Architecture
+
+以后：
+
+平台越来越大。
+
+架构会演进。
+
+Version0：
+
+```
+Browser
+
+↓
+
+SpringBoot
+
+↓
+
+PostgreSQL
+```
+
+Version1：
+
+```
+Browser
+
+↓
+
+Nginx
+
+↓
+
+SpringBoot
+
+↓
+
+Redis
+
+↓
+
+PostgreSQL
+```
+
+Version2：
+
+```
+Nginx
+
+↓
+
+Gateway
+
+↓
+
+Application
+
+↓
+
+Redis
+
+↓
+
+MQ
+
+↓
+
+PostgreSQL
+```
+
+Version3：
+
+```
+Docker
+
+↓
+
+Kubernetes
+
+↓
+
+微服务
+```
+
+以后：
+
+慢慢演化。
+
+---
+
+# Tree6：Infrastructure
+
+```
+Linux
+
+├── Git
+├── SSH
+├── Docker
+├── Docker Compose
+├── PostgreSQL
+├── Redis
+├── Nginx
+├── MinIO
+├── Prometheus
+├── Grafana
+└── CI/CD
+```
+
+---
+
+# 项目开发路线
+
+我不会让你：
+
+一口气写完。
+
+而是：
+
+像 Linux Kernel 一样。
+
+不断迭代。
+
+---
+
+## Version 0.1
+
+只有：
+
+```
+登录
+
+注册
+
+JWT
+
+题目
+
+提交Flag
+
+排行榜
+```
+
+Java：
+
+学习：
+
+```
+Spring MVC
+
+JPA
+
+Security
+
+JWT
+```
+
+---
+
+## Version 0.2
+
+增加：
+
+```
+管理员
+
+后台
+
+上传题目
+
+上传附件
+```
+
+Java：
+
+学习：
+
+```
+文件IO
+
+Validation
+
+Exception
+```
+
+---
+
+## Version 0.3
+
+增加：
+
+```
+Docker
+
+动态环境
+
+实例生命周期
+```
+
+Java：
+
+学习：
+
+```
+线程池
+
+CompletableFuture
+
+Docker SDK
+```
+
+---
+
+## Version 0.4
+
+增加：
+
+```
+Redis
+
+排行榜缓存
+
+在线人数
+```
+
+Java：
+
+学习：
+
+```
+Cache
+
+RedisTemplate
+
+Lua
+```
+
+---
+
+## Version 0.5
+
+增加：
+
+```
+比赛
+
+开始结束
+
+动态积分
+```
+
+Java：
+
+学习：
+
+```
+事务
+
+事件
+
+Scheduler
+```
+
+---
+
+## Version1.0
+
+真正可用。
+
+---
+
+# 我希望你养成一个习惯。
+
+以后：
+
+不要：
+
+今天：
+
+学：
+
+CompletableFuture。
+
+明天：
+
+学：
+
+ThreadPool。
+
+后天：
+
+学：
+
+Redis。
+
+这样：
+
+知识是碎的。
+
+而应该：
+
+```
+我要实现：
+
+Docker异步启动。
+
+↓
+
+需要：
+
+线程池。
+
+↓
+
+学习：
+
+ExecutorService。
+
+↓
+
+继续：
+
+CompletableFuture。
+
+↓
+
+继续：
+
+AQS。
+
+↓
+
+继续：
+
+Unsafe。
+
+↓
+
+继续：
+
+CAS。
+
+↓
+
+继续：
+
+CPU缓存。
+```
+
+这叫：
+
+**需求驱动学习。**
+
+这是我认为效率最高的方法。
+
+---
+
+# Git 仓库规划（这是我比较坚持的一点）
+
+整个仓库，我建议一开始就按大型项目组织，而不是等代码多了再整理。
+
+```text
+ctf-platform/
+│
+├── docs/                    # 文档（与 src 同等重要）
+│   ├── roadmap/             # 路线图
+│   ├── architecture/        # 架构设计
+│   ├── domain/              # 领域模型
+│   ├── database/            # ER 图、表设计
+│   ├── api/                 # API 文档
+│   ├── java-notes/          # Java 知识笔记
+│   ├── source-analysis/     # JDK/Spring 源码分析
+│   └── decisions/           # 架构决策记录（ADR）
+│
+├── backend/                 # Spring Boot
+├── frontend/                # Vue3
+├── deploy/                  # Docker、Nginx、Compose
+├── scripts/                 # 自动化脚本
+├── tools/                   # 开发工具
+├── tests/                   # 集成测试
+└── README.md
+```
+
+尤其是 `docs/architecture` 和 `docs/decisions`，建议从第一天开始维护。比如为什么选择 PostgreSQL 而不是 MySQL？为什么使用 JWT？为什么采用单体架构而不是微服务？把这些决策记录下来，以后回顾会非常有价值。
+
+---
+
+# 最后，我想给这个项目定一条原则
+
+这条原则以后可以写进 README 的最前面。
+
+> **这个项目的目标不是最快完成，而是构建一套可演进、可理解、可维护的软件系统。**
+>
+> **每增加一个功能，都要回答四个问题：**
+>
+> 1. **业务上为什么需要它？**
+> 2. **为什么选择这个技术实现？**
+> 3. **这里运用了哪些 Java 知识？**
+> 4. **这些 Java 知识最终对应哪些计算机底层原理？**
+
+---
+
+## 我建议我们按"学期制"来推进，而不是按"教程"推进。
+
+如果我作为你的导师，我会把这个项目规划成 **四个学期**：
+
+* **第一学期（基础工程）**：环境、Git、Java、Spring Boot、数据库、登录、权限。
+* **第二学期（平台核心）**：比赛、题目、判题、排行榜、后台管理，完成一个可用的 CTF 平台。
+* **第三学期（架构进阶）**：Docker 动态容器、Redis、异步任务、消息队列、监控，达到接近 GZCTF 的能力。
+* **第四学期（源码与底层）**：深入 Spring、JDK、JVM 源码，结合操作系统、网络和 Docker 原理，对整个系统进行性能优化和架构演进。
+
+**如果你愿意，我希望这个项目不是做几个月，而是做成一个"长期作品"。**
+等它完成的时候，你收获的不只是一个 CTF 平台，而是一套完整的 Java 架构能力、一份高质量的 GitHub 仓库，以及一条从计算机基础一直延伸到现代软件工程的完整知识链。
