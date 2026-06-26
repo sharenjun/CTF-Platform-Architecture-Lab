@@ -1,0 +1,23 @@
+/docs
+├── 00-Architecture/
+│   ├── 整体架构.md
+│   ├── 业务树.md
+│   ├── 技术树.md
+│   └── 知识树.md
+│
+├── 01-Domain/
+│   ├── 用户系统.md
+│   ├── 比赛系统.md
+│   ├── 判题系统.md
+│   └── 容器系统.md
+│
+├── 02-Java/
+│   ├── 为什么这里用 CompletableFuture.md
+│   ├── 为什么这里用 AQS.md
+│   ├── JVM 与线程模型.md
+│   └── Spring Bean 生命周期.md
+│
+└── 03-Source-Code/
+    ├── Spring 源码分析.md
+    ├── JDK 源码分析.md
+    └── Docker API 分析.md
